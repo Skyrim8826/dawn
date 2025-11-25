@@ -1,0 +1,213 @@
+/* ANGARAH Monotone Theme Variables */
+:root {
+  /* Light Theme (Default) */
+  --color-theme-bg: #ffffff;
+  --color-theme-fg: #1a1a1a;
+  --color-theme-accent: #333333;
+  --color-theme-muted: #666666;
+  --color-theme-border: #e0e0e0;
+  --color-theme-hover: #f5f5f5;
+  --color-theme-shadow: rgba(26, 26, 26, 0.1);
+  
+  /* Button styles */
+  --color-theme-btn-bg: #1a1a1a;
+  --color-theme-btn-fg: #ffffff;
+  --color-theme-btn-hover-bg: #333333;
+  
+  /* Barbecue theme accents */
+  --color-theme-fire: #ff6b35;
+  --color-theme-smoke: #8a8a8a;
+  
+  /* Theme toggle */
+  --theme-toggle-size: 2.4rem;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --color-theme-bg: #1a1a1a;
+  --color-theme-fg: #ffffff;
+  --color-theme-accent: #cccccc;
+  --color-theme-muted: #999999;
+  --color-theme-border: #333333;
+  --color-theme-hover: #2a2a2a;
+  --color-theme-shadow: rgba(255, 255, 255, 0.1);
+  
+  --color-theme-btn-bg: #ffffff;
+  --color-theme-btn-fg: #1a1a1a;
+  --color-theme-btn-hover-bg: #cccccc;
+}
+
+/* Apply monotone theme */
+body {
+  background-color: var(--color-theme-bg) !important;
+  color: var(--color-theme-fg) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Headers and text */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-theme-fg) !important;
+}
+
+/* Links */
+a {
+  color: var(--color-theme-accent) !important;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-theme-muted) !important;
+}
+
+/* Buttons */
+.btn,
+button,
+input[type="submit"],
+input[type="button"],
+.button {
+  background-color: var(--color-theme-btn-bg) !important;
+  color: var(--color-theme-btn-fg) !important;
+  border: 1px solid var(--color-theme-accent) !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.button:hover {
+  background-color: var(--color-theme-btn-hover-bg) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px var(--color-theme-shadow);
+}
+
+/* Cards and containers */
+.card,
+.product-card,
+.collection-card {
+  background-color: var(--color-theme-bg) !important;
+  border: 1px solid var(--color-theme-border) !important;
+  box-shadow: 0 2px 4px var(--color-theme-shadow) !important;
+  transition: all 0.3s ease !important;
+}
+
+.card:hover,
+.product-card:hover,
+.collection-card:hover {
+  background-color: var(--color-theme-hover) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px var(--color-theme-shadow) !important;
+}
+
+/* Form elements */
+input,
+textarea,
+select {
+  background-color: var(--color-theme-bg) !important;
+  color: var(--color-theme-fg) !important;
+  border: 1px solid var(--color-theme-border) !important;
+  transition: all 0.3s ease !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-theme-accent) !important;
+  box-shadow: 0 0 0 2px var(--color-theme-shadow) !important;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: var(--theme-toggle-size);
+  height: var(--theme-toggle-size);
+  border-radius: 50%;
+  background-color: var(--color-theme-btn-bg);
+  border: 2px solid var(--color-theme-accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 2px 8px var(--color-theme-shadow);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px var(--color-theme-shadow);
+}
+
+.theme-toggle-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: var(--color-theme-btn-fg);
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Responsive theme toggle */
+@media screen and (max-width: 750px) {
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .theme-toggle-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+/* Header styling */
+.header {
+  background-color: var(--color-theme-bg) !important;
+  border-bottom: 1px solid var(--color-theme-border) !important;
+  transition: background-color 0.3s ease;
+}
+
+/* Navigation */
+.header__menu-item a {
+  color: var(--color-theme-fg) !important;
+}
+
+.header__menu-item a:hover {
+  color: var(--color-theme-accent) !important;
+}
+
+/* ANGARAH Brand Styling */
+.angarah-brand {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-theme-fg) !important;
+}
+
+.angarah-accent {
+  color: var(--color-theme-fire) !important;
+}
+
+/* Product showcase specific styles */
+.product-hero {
+  background: linear-gradient(135deg, var(--color-theme-bg) 0%, var(--color-theme-hover) 100%);
+  transition: background 0.3s ease;
+}
+
+.product-feature {
+  background-color: var(--color-theme-bg);
+  border: 1px solid var(--color-theme-border);
+  transition: all 0.3s ease;
+}
+
+.product-feature:hover {
+  background-color: var(--color-theme-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--color-theme-shadow);
+}

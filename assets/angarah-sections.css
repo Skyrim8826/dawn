@@ -1,0 +1,372 @@
+/* ANGARAH Sections Styles */
+
+/* Features Section */
+.angarah-features {
+  padding: 5rem 0;
+  background: var(--color-theme-bg);
+  transition: background-color 0.3s ease;
+}
+
+.angarah-features__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.angarah-feature {
+  background: var(--color-theme-bg);
+  border: 1px solid var(--color-theme-border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.angarah-feature:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-theme-fire), var(--color-theme-accent));
+  transition: left 0.5s ease;
+}
+
+.angarah-feature:hover:before {
+  left: 0;
+}
+
+.angarah-feature:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px var(--color-theme-shadow);
+  border-color: var(--color-theme-accent);
+}
+
+.angarah-feature__icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1.5rem;
+  background: var(--color-theme-hover);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.angarah-feature:hover .angarah-feature__icon {
+  background: var(--color-theme-fire);
+  color: white;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.angarah-feature__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-theme-fg);
+}
+
+.angarah-feature__description {
+  color: var(--color-theme-muted);
+  line-height: 1.6;
+}
+
+/* Product Details Section */
+.angarah-product-details {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, var(--color-theme-bg) 0%, var(--color-theme-hover) 100%);
+}
+
+.angarah-product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.angarah-product-info h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--color-theme-fg);
+}
+
+.angarah-specs {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.angarah-specs li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-theme-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.angarah-specs li:last-child {
+  border-bottom: none;
+}
+
+.angarah-spec-label {
+  font-weight: 600;
+  color: var(--color-theme-fg);
+}
+
+.angarah-spec-value {
+  color: var(--color-theme-muted);
+  font-weight: 500;
+}
+
+.angarah-product-gallery {
+  position: relative;
+}
+
+.angarah-gallery-main img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px var(--color-theme-shadow);
+}
+
+/* Video Section */
+.angarah-video {
+  padding: 5rem 0;
+  background: var(--color-theme-bg);
+  text-align: center;
+}
+
+.angarah-video h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-theme-fg);
+}
+
+.angarah-video-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px var(--color-theme-shadow);
+}
+
+.angarah-video-placeholder {
+  aspect-ratio: 16/9;
+  background: var(--color-theme-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.angarah-video-placeholder:hover {
+  background: var(--color-theme-border);
+}
+
+.angarah-play-button {
+  width: 80px;
+  height: 80px;
+  background: var(--color-theme-fire);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+
+.angarah-play-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+}
+
+/* CTA Section */
+.angarah-cta-section {
+  padding: 6rem 0;
+  background: var(--color-theme-fg);
+  color: var(--color-theme-bg);
+  text-align: center;
+}
+
+.angarah-cta-section h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: var(--color-theme-bg);
+}
+
+.angarah-cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+}
+
+.angarah-cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.angarah-cta-primary {
+  background: var(--color-theme-fire);
+  color: white;
+  padding: 1.2rem 3rem;
+  border: none;
+  border-radius: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.angarah-cta-primary:hover {
+  background: #ff4500;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+}
+
+.angarah-cta-secondary {
+  background: transparent;
+  color: var(--color-theme-bg);
+  padding: 1.2rem 3rem;
+  border: 2px solid var(--color-theme-bg);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.angarah-cta-secondary:hover {
+  background: var(--color-theme-bg);
+  color: var(--color-theme-fg);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 990px) {
+  .angarah-product-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .angarah-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .angarah-cta-primary,
+  .angarah-cta-secondary {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .angarah-features__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .angarah-feature {
+    padding: 2rem;
+  }
+  
+  .angarah-cta-section h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Animation classes */
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.angarah-features .angarah-feature {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.angarah-features .angarah-feature:nth-child(1) { transition-delay: 0.1s; }
+.angarah-features .angarah-feature:nth-child(2) { transition-delay: 0.2s; }
+.angarah-features .angarah-feature:nth-child(3) { transition-delay: 0.3s; }
+
+/* Typography improvements for barbecue theme */
+.angarah-brand,
+.angarah-hero__heading {
+  font-family: 'Roboto Condensed', 'Arial Black', sans-serif;
+  text-transform: uppercase;
+}
+
+/* Subtle texture overlay for barbecue feel */
+.angarah-hero:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(255, 107, 53, 0.1) 0%, transparent 25%),
+    radial-gradient(circle at 75% 75%, rgba(138, 138, 138, 0.1) 0%, transparent 25%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.angarah-hero > .page-width {
+  position: relative;
+  z-index: 2;
+}
+
+/* Improved button hover states */
+.angarah-cta-button,
+.angarah-cta-primary {
+  position: relative;
+  overflow: hidden;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.angarah-cta-button:hover,
+.angarah-cta-primary:hover {
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    0 0 20px rgba(255, 107, 53, 0.3);
+}
+
+/* Improved mobile responsiveness */
+@media screen and (max-width: 550px) {
+  .angarah-hero__heading {
+    font-size: 2.5rem;
+  }
+  
+  .angarah-hero__content {
+    gap: 2rem;
+  }
+  
+  .angarah-feature {
+    padding: 1.5rem;
+  }
+  
+  .angarah-cta-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .angarah-cta-primary,
+  .angarah-cta-secondary {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,80 @@
+<!-- ANGARAH CTA Section -->
+
+<div class="angarah-cta-section">
+  <div class="page-width">
+    <h2>{{ section.settings.heading | default: 'Ready to Elevate Your Grilling Game?' }}</h2>
+
+    {% if section.settings.description != blank %}
+      <p>{{ section.settings.description }}</p>
+    {% endif %}
+
+    <div class="angarah-cta-buttons">
+      {% if section.settings.primary_button_text != blank %}
+        <a
+          href="{{ section.settings.primary_button_link | default: '#' }}"
+          class="angarah-cta-primary"
+        >
+          {{ section.settings.primary_button_text }}
+        </a>
+      {% endif %}
+
+      {% if section.settings.secondary_button_text != blank %}
+        <a
+          href="{{ section.settings.secondary_button_link | default: '#' }}"
+          class="angarah-cta-secondary"
+        >
+          {{ section.settings.secondary_button_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "ANGARAH CTA",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Ready to Elevate Your Grilling Game?",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "default": "Join thousands of adventurers who've made TravX their go-to portable grilling solution.",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "default": "Order Your TravX",
+      "label": "Primary button text"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "default": "View Accessories",
+      "label": "Secondary button text"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ANGARAH CTA"
+    }
+  ]
+}
+{% endschema %}

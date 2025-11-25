@@ -1,0 +1,436 @@
+<!-- ANGARAH Hero Section -->
+
+<div
+  class="angarah-hero product-hero"
+  {% if section.settings.background_image %}
+    style="background-image: linear-gradient(rgba(0,0,0,{{ section.settings.overlay_opacity | times: 0.01 }}), rgba(0,0,0,{{ section.settings.overlay_opacity | times: 0.01 }})), url('{{ section.settings.background_image | image_url }}');"
+  {% endif %}
+>
+  <div class="page-width">
+    <div class="angarah-hero__content">
+      <div class="angarah-hero__text">
+        <h1 class="angarah-hero__heading angarah-brand">
+          {{ section.settings.heading | default: 'ANGARAH TravX' }}
+        </h1>
+
+        {% if section.settings.subheading != blank %}
+          <h2 class="angarah-hero__subheading">
+            {{ section.settings.subheading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <p class="angarah-hero__description">
+            {{ section.settings.description }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <div class="angarah-hero__actions">
+            <a
+              href="{{ section.settings.button_link | default: '#' }}"
+              class="btn angarah-cta-button"
+            >
+              {{ section.settings.button_text }}
+              <svg class="angarah-cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z"/>
+              </svg>
+            </a>
+
+            <a href="#angarah-video" class="angarah-video-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5V19L19 12L8 5Z"/>
+              </svg>
+              Watch in Action
+            </a>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="angarah-hero__media">
+        <div class="angarah-product-showcase">
+          {% if section.settings.product_image %}
+            <img
+              src="{{ section.settings.product_image | image_url: width: 600 }}"
+              alt="ANGARAH TravX Portable Barbecue Grill"
+              width="600"
+              height="450"
+              class="angarah-product-image"
+            >
+          {% else %}
+            <div class="angarah-product-placeholder">
+              <svg width="200" height="150" viewBox="0 0 200 150" fill="currentColor" opacity="0.3">
+                <rect width="200" height="150" rx="8" fill="var(--color-theme-border)"/>
+                <text x="100" y="75" text-anchor="middle" font-size="14" fill="var(--color-theme-muted)">TravX Grill</text>
+              </svg>
+            </div>
+          {% endif %}
+
+          <!-- Floating feature badges -->
+          <div class="angarah-badges">
+            <div class="angarah-badge angarah-badge--travel">
+              <span class="angarah-badge__icon">✈️</span>
+              <span class="angarah-badge__text">Travel Ready</span>
+            </div>
+            <div class="angarah-badge angarah-badge--quick">
+              <span class="angarah-badge__icon">⚡</span>
+              <span class="angarah-badge__text">5min Setup</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="angarah-scroll-indicator">
+      <div class="angarah-scroll-arrow"></div>
+      <span class="angarah-scroll-text">Scroll to explore</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .angarah-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .angarah-hero__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .angarah-hero__text {
+    animation: slideInLeft 0.8s ease-out;
+  }
+
+  .angarah-hero__heading {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .angarah-hero__subheading {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  .angarah-hero__description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    opacity: 0.8;
+  }
+
+  .angarah-hero__actions {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .angarah-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none !important;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .angarah-cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .angarah-cta-button:hover:before {
+    left: 100%;
+  }
+
+  .angarah-cta-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .angarah-cta-button:hover .angarah-cta-arrow {
+    transform: translateX(4px);
+  }
+
+  .angarah-video-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-theme-muted) !important;
+    text-decoration: none !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .angarah-video-link:hover {
+    color: var(--color-theme-fg) !important;
+    transform: translateY(-1px);
+  }
+
+  .angarah-hero__media {
+    animation: slideInRight 0.8s ease-out;
+    position: relative;
+  }
+
+  .angarah-product-showcase {
+    position: relative;
+    text-align: center;
+  }
+
+  .angarah-product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px var(--color-theme-shadow);
+    transition: transform 0.3s ease;
+  }
+
+  .angarah-product-image:hover {
+    transform: scale(1.02) rotate(1deg);
+  }
+
+  .angarah-product-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-theme-hover);
+    border-radius: 12px;
+    padding: 3rem;
+  }
+
+  .angarah-badges {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .angarah-badge {
+    position: absolute;
+    background: var(--color-theme-bg);
+    border: 1px solid var(--color-theme-border);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 8px 32px var(--color-theme-shadow);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .angarah-badge--travel {
+    top: 10%;
+    right: -10%;
+    animation-delay: -1s;
+  }
+
+  .angarah-badge--quick {
+    bottom: 20%;
+    left: -15%;
+    animation-delay: -2s;
+  }
+
+  .angarah-scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    animation: bounce 2s infinite;
+  }
+
+  .angarah-scroll-arrow {
+    width: 2px;
+    height: 30px;
+    background: var(--color-theme-accent);
+    margin: 0 auto 0.5rem;
+    position: relative;
+  }
+
+  .angarah-scroll-arrow:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -3px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 8px solid var(--color-theme-accent);
+  }
+
+  .angarah-scroll-text {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    display: block;
+  }
+
+  /* Animations */
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 990px) {
+    .angarah-hero__content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .angarah-hero__actions {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .angarah-badge {
+      position: relative;
+      margin: 1rem;
+    }
+
+    .angarah-badge--travel,
+    .angarah-badge--quick {
+      top: auto;
+      right: auto;
+      bottom: auto;
+      left: auto;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "ANGARAH Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "ANGARAH TravX",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "The Ultimate Portable Barbecue Experience",
+      "label": "Subheading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "default": "Compact. Powerful. Unforgettable flavors anywhere you go.",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "default": "Discover TravX",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Background overlay opacity",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "ANGARAH Hero"
+    }
+  ]
+}
+{% endschema %}

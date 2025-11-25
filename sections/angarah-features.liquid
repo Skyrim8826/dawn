@@ -1,0 +1,180 @@
+<!-- ANGARAH Features Section -->
+
+<div class="angarah-features">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <div class="section-header text-center">
+        <h2 class="section-heading">{{ section.settings.heading }}</h2>
+        {% if section.settings.subheading != blank %}
+          <p class="section-subheading">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="angarah-features__grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'feature' %}
+            <div class="angarah-feature product-feature" {{ block.shopify_attributes }}>
+              <div class="angarah-feature__icon">
+                {% case block.settings.icon %}
+                  {% when 'fire' %}
+                    🔥
+                  {% when 'portable' %}
+                    🎒
+                  {% when 'durable' %}
+                    ⚡
+                  {% when 'easy' %}
+                    ✨
+                  {% when 'grill' %}
+                    🍖
+                  {% when 'travel' %}
+                    ✈️
+                  {% else %}
+                    🔧
+                {% endcase %}
+              </div>
+
+              <h3 class="angarah-feature__title">
+                {{ block.settings.title | default: 'Feature Title' }}
+              </h3>
+
+              <p class="angarah-feature__description">
+                {{ block.settings.description | default: 'Feature description goes here.' }}
+              </p>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-heading {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--color-theme-fg);
+    font-family: inherit;
+  }
+
+  .section-subheading {
+    font-size: 1.2rem;
+    color: var(--color-theme-muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "ANGARAH Features",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Why Choose TravX?",
+      "label": "Section heading"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "default": "Engineered for the modern adventurer who demands quality and convenience.",
+      "label": "Section subheading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "fire",
+              "label": "Fire"
+            },
+            {
+              "value": "portable",
+              "label": "Portable"
+            },
+            {
+              "value": "durable",
+              "label": "Durable"
+            },
+            {
+              "value": "easy",
+              "label": "Easy"
+            },
+            {
+              "value": "grill",
+              "label": "Grill"
+            },
+            {
+              "value": "travel",
+              "label": "Travel"
+            }
+          ],
+          "default": "fire"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Feature Title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "default": "Describe this feature and how it benefits the customer.",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ANGARAH Features",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "fire",
+            "title": "Rapid Heat Technology",
+            "description": "Get grilling in under 5 minutes with our advanced heating system"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "portable",
+            "title": "Ultra Portable",
+            "description": "Weighs only 12lbs and folds to the size of a briefcase"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "durable",
+            "title": "Built to Last",
+            "description": "Premium stainless steel construction for years of adventures"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
